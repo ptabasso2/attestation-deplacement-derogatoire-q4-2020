@@ -32,16 +32,29 @@ export async function generatePdf (profile, reasons, pdfBase) {
     heuresortie,
   } = profile
 
+//  const data = [
+//    `Cree le: ${creationDate} a ${creationHour}`,
+//    `Nom: ${lastname}`,
+//    `Prenom: ${firstname}`,
+//    `Naissance: ${birthday} a ${placeofbirth}`,
+//    `Adresse: ${address} ${zipcode} ${city}`,
+//    `Sortie: ${datesortie} a ${heuresortie}`,
+//    `Motifs: ${reasons}`,
+//  ].join(';\n ')
+
+  
   const data = [
     `Cree le: ${creationDate} a ${creationHour}`,
-    `Nom: ${lastname}`,
-    `Prenom: ${firstname}`,
-    `Naissance: ${birthday} a ${placeofbirth}`,
-    `Adresse: ${address} ${zipcode} ${city}`,
+    `Nom: Tabassomi`,
+    `Prenom: Pejman`,
+    `Naissance: 02/06/1970 a Lausanne`,
+    `Adresse: 14 av Stephane Mallarme 75017 Paris`,
     `Sortie: ${datesortie} a ${heuresortie}`,
     `Motifs: ${reasons}`,
   ].join(';\n ')
-
+  
+  
+  
   const existingPdfBytes = await fetch(pdfBase).then((res) => res.arrayBuffer())
 
   const pdfDoc = await PDFDocument.load(existingPdfBytes)
